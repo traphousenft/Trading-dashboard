@@ -1,6 +1,8 @@
 window.onload = function() {
+    // NQ Chart with session authentication
     new TradingView.widget({
-        autosize: true,
+        width: '100%',
+        height: '100%',
         symbol: 'CME_MINI:NQ1!',
         interval: '15',
         timezone: 'America/New_York',
@@ -9,23 +11,24 @@ window.onload = function() {
         locale: 'en',
         toolbar_bg: 'f1f3f6',
         enable_publishing: false,
-        allow_symbol_change: true,
+        withdateranges: true,
         hide_side_toolbar: false,
+        allow_symbol_change: true,
         details: true,
         hotlist: true,
         calendar: false,
-        studies: ['STD;Volume'],
         container_id: 'nq',
-        // Add authentication
-        customer: 'YOUR_TRADINGVIEW_USERNAME',
-        // This will prompt for login
-        show_popup_button: true,
-        popup_width: '1000',
-        popup_height: '650'
+        // Session-based auth - uses your browser login
+        save_image: false,
+        studies_access: {
+            type: 'black',
+            tools: [{ name: 'Volume' }]
+        }
     });
     
     new TradingView.widget({
-        autosize: true,
+        width: '100%',
+        height: '100%',
         symbol: 'CME_MINI:ES1!',
         interval: '15',
         timezone: 'America/New_York',
@@ -34,16 +37,17 @@ window.onload = function() {
         locale: 'en',
         toolbar_bg: 'f1f3f6',
         enable_publishing: false,
-        allow_symbol_change: true,
+        withdateranges: true,
         hide_side_toolbar: false,
+        allow_symbol_change: true,
         details: true,
         hotlist: true,
         calendar: false,
-        studies: ['STD;Volume'],
         container_id: 'es',
-        customer: 'YOUR_TRADINGVIEW_USERNAME',
-        show_popup_button: true,
-        popup_width: '1000',
-        popup_height: '650'
+        save_image: false,
+        studies_access: {
+            type: 'black',
+            tools: [{ name: 'Volume' }]
+        }
     });
 };
